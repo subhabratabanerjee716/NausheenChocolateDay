@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Chocolate Day 🍫</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #5a2d0c, #a0522d);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: #fff3e6;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      color: #5a2d0c;
+    }
+
+    button {
+      font-size: 22px;
+      padding: 18px 35px;
+      border-radius: 50px;
+      border: none;
+      background: #6b3e26;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #3d1f0e;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #5a2d0c;
+      font-weight: bold;
+    }
+
+    .choco {
+      position: absolute;
+      font-size: 25px;
+      animation: fall 3s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>🍫 Happy Chocolate Day 🍫</h1>
+
+    <button onclick="celebrate()">Give Me Chocolate 😂</button>
+
+    <div class="message" id="msg"></div>
+  </div>
+
+<script>
+const messages = [
+  "You deserve ALL the chocolates 😋",
+  "Calories don’t count today 🍩",
+  "Chocolate = Happiness 🍫❤️",
+  "Sharing is caring... but not my chocolate 😆",
+  "You are sweeter than chocolate 💝"
+];
+
+function celebrate() {
+  const msg = document.getElementById("msg");
+  msg.innerText = messages[Math.floor(Math.random() * messages.length)];
+
+  for (let i = 0; i < 20; i++) {
+    const choco = document.createElement("div");
+    choco.className = "choco";
+    choco.innerText = "🍫";
+    choco.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(choco);
+
+    setTimeout(() => choco.remove(), 3000);
+  }
+}
+</script>
+
+</body>
+</html>
